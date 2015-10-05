@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Vector</title>
+
+    <!-- WinJS references -->
+    <link href="WinJS/css/ui-dark.css" rel="stylesheet" />
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+
+    <!-- Vector references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/css/colorPicker.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body class="win-type-body">
+    <div id="app">
+        <progress id="saveProgress"></progress>
+        <section aria-label="Main content" role="main">
+            <div id="squareMask" class="mask"></div>
+            <div id="squareLabel" class="maskLabel">ALIGN SQUARE LOGO</div>
+
+            <div id="squareController" class="ManipulationContainer">
+                <img id="squareImage" class="ManipulationElement" />
+            </div>
+            <div id="wideMask" class="mask"></div>
+            <div id="wideLabel" class="maskLabel">ALIGN WIDE LOGO</div>
+
+            <div id="wideController" class="ManipulationContainer">
+                <img id="wideImage" class="ManipulationElement" />
+            </div>
+        </section>
+    </div>
+    <div data-win-control="WinJS.UI.Flyout" id="imagesSettings">
+        <div class="win-content">
+            <div class="setings-section">
+                <h3>Scales to Export</h3>
+                <label for="toggleWindows10Scale">
+                    Windows 10
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleWindows10Scale" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">125% 150% 200% 400%</div>
+                </div>
+                <label for="toggleWindows8Scale">
+                    Windows 8
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleWindows8Scale" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">80% 140% 180%</div>
+                </div>
+                <label for="toggleWindowsPhone8Scale">
+                    Windows Phone
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleWindowsPhone8Scale" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">240%</div>
+                </div>
+            </div>
+            <div class="setings-section">
+                <h3>Wide images</h3>
+                <label for="toggleSplash">
+                    Splash screen
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleSplash" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">620x300</div>
+                </div>
+                <label for="toggleWideLogo">
+                    Wide logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleWideLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">310x150</div>
+                </div>
+            </div>
+            <div class="setings-section">
+                <h3>Square images</h3>
+
+                <label for="toggleSquare44x44Logo">
+                    Square 44x44 logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleSquare44x44Logo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">44x44</div>
+                </div>
+                <label for="toggleSquare71x71Logo">
+                    Square 71x71 logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleSquare71x71Logo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">71x71</div>
+                </div>
+                <label for="toggleLogo">
+                    Logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">150x150</div>
+                </div>
+
+                <label for="toggleBadgeLogo">
+                    Badge logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleBadgeLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">24x24</div>
+                </div>
+                <label for="toggleLargeLogo">
+                    Large tile
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleLargeLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">310x310</div>
+                </div>
+                <label for="toggleStoreLogo">
+                    Store logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleStoreLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">50x50</div>
+                </div>
+                <label for="toggleBackdrop">
+                    Include background color in Store logo
+                </label>
+                <div id="toggleBackdrop" title="In general you should not include a background color in a logo, but this option allows your store logo image to include the background color so it shows up correctly when shown in link previews on social networks like twitter and facebook." data-win-control="WinJS.UI.ToggleSwitch"
+                     data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                </div>
+            </div>
+            <div class="setings-section">
+                <h3>Windows Phone and Windows 8</h3>
+                <label for="toggleSmallTileLogo">
+                    Small tile
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleSmallTileLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">70x70</div>
+                </div>
+                <label for="toggleSmallLogo">
+                    Small logo
+                </label>
+                <div class="toggleContainer">
+                    <div id="toggleSmallLogo" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">30x30</div>
+                </div>
+                <label for="togglePhoneSplashScreen">
+                    Splash screen
+                </label>
+                <div class="toggleContainer">
+                    <div id="togglePhoneSplashScreen" data-win-control="WinJS.UI.ToggleSwitch"
+                         data-win-options="{labelOn: 'Yes' ,labelOff: 'No'}">
+                    </div>
+                    <div class="sizeLabel">480x800</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="commandsAppBar" data-win-control="WinJS.UI.AppBar" data-win-options="{placement:'top'}">
+        <button data-win-control="WinJS.UI.AppBarCommand" id="appBarSpacer" data-win-options="{disabled:'disabled'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdExport',label:'Export',icon:'save',tooltip:'Export images', section: 'primary', disabled:'disabled'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdOpen',label:'Choose SVG',icon:'openfile',section:'primary',tooltip:'Choose SVG'}"></button>
+        <hr data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'separator', type:'separator', section:'primary'}" />
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAutoSize',label:'AutoSize', icon:'backtowindow', priority :3, section:'primary',tooltip:'Resize and center images to fit'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdPickColor',label:'Color plate',icon:'edit',section:'primary', priority : 2, tooltip:'Pick a background color', type: 'flyout', flyout: 'bgColor'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdSettings',label:'Settings',icon:'settings', section:'primary', priority : 1,  tooltip:'Set your export settings', type: 'flyout', flyout: 'imagesSettings'}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdHelp',label:'Help & tips',icon:'help', section:'secondary', tooltip:'Vector Help', type: 'flyout', flyout: 'helpAndTips'}"></button>
+    </div>
+    <div id="bgColor" data-win-control="WinJS.UI.Flyout">
+        <div class="colorPicker">
+            <div class="colorWrapper">
+                <div class="colorIndicator"></div>
+                <img src="/images/colorDark.png" class="dark gradient" />
+                <img src="/images/colorLight.png" class="light gradient" />
+            </div>
+            <input type="range" min="0" max="100" value="50" />
+            <canvas class="colorCanvas" ondragstart="return false;"></canvas>
+            <br />
+            <form onsubmit="return false;" id="hexColorRegion">
+                <div id="hexColorLabel">Hex color</div>
+                <input type="text" maxlength="7" id="hexColor" />
+            </form>
+        </div>
+    </div>
+    <div class="helpAndTipsTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="overlaidItemTemplate">
+            <div class="overlay">
+                <h1 class="win-h1" data-win-bind="textContent: title"></h1>
+                <h3 class="win-h3" data-win-bind="textContent: subtitle"></h3>
+            </div>
+            <div class="tipImageBox">
+                <img style="display:none" data-win-bind="src: picture; alt: title;" />
+                <img data-win-bind="src: video; alt: title;style.display:displayVideo" />
+            </div>
+        </div>
+    </div>
+
+    <div data-win-control="WinJS.UI.Flyout" id="helpAndTips">
+        <div id="helpAndTipsFlipView" class="flipView" data-win-control="WinJS.UI.FlipView"
+             data-win-options="{
+            itemDataSource: HelpAndTips.bindingList.dataSource,
+            itemTemplate: select('.helpAndTipsTemplate')
+         }">
+        </div>
+    </div>
+</body>
+</html>

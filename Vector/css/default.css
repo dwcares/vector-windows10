@@ -1,0 +1,295 @@
+﻿body {
+    -ms-user-select: none;
+}
+
+#helpAndTips {
+    width: 500px;
+    height: 500px;
+    background-color: #2b2b2b;
+
+}
+
+#helpAndTips .win-template {
+    outline: none;
+}
+
+
+.win-flipview {
+    height: 100%;
+    width: 100%;
+}
+
+.win-flipview  h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tipImageBox {
+    width: 400px;
+    height: auto;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+.tipImageBox img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+
+progress {
+    position: absolute;
+    width: 600px;
+    height: 3px;
+    right: 0px;
+    z-index: 999;
+    color: white;
+    opacity: 0;
+    transition: opacity ease 0.25s;
+}
+
+    progress.showing {
+        opacity: 1;
+    }
+
+
+#headerLogo {
+    background-image: url(/images/vector-wide.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+    right: 300px;
+    position: fixed;
+}
+
+#app {
+    /* Define a grid with rows for a banner and a body */
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: auto 1fr 0px;
+    display: -ms-grid;
+    height: 100%;
+    width: 100%;
+}
+
+    #app section[role=main] {
+        -ms-grid-row: 2;
+        height: 100%;
+        width: 100%;
+        display: -ms-grid;
+        -ms-grid-columns: 3fr 300px 2fr 620px 3fr;
+        -ms-grid-rows: 1fr;
+    }
+
+.maskLabel {
+    font-family: 'Segoe UI Semibold';
+    opacity: .6;
+    -ms-grid-row-align: center;
+    margin-top: 320px;
+    transition: opacity ease-out .25s;
+}
+
+#squareLabel {
+    -ms-grid-column: 2;
+}
+
+#wideLabel {
+    -ms-grid-column: 4;
+}
+
+
+.mask {
+    -ms-grid-column-align: center;
+    -ms-grid-row-align: center;
+    background-color: #8f0c0c;
+}
+
+#squareMask {
+    -ms-grid-column: 2;
+    width: 300px;
+    height: 300px;
+}
+
+#wideMask {
+    -ms-grid-column: 4;
+    width: 620px;
+    height: 300px;
+}
+
+#squareController {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    width: 300px;
+}
+
+#wideController {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+}
+
+
+.ManipulationContainer {
+    -ms-grid-row-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+}
+
+.ManipulationElement {
+    z-index: 3;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+    -ms-touch-action: none;
+    -ms-grid-column-align: center;
+    -ms-grid-row-align: center;
+}
+
+.toggleContainer {
+    display: -ms-grid;
+    -ms-grid-rows: auto;
+    -ms-grid-columns: 1fr auto;
+}
+
+
+#bgColor {
+    box-shadow: inset 0px 6px 4px 0px rgba(50, 50, 50, 0.8);
+}
+
+#commandsAppBar {
+    max-width: 600px;
+    right: 0px;
+}
+
+    #commandsAppBar #appBarSpacer {
+        width: 80px;
+    }
+
+    #commandsAppBar .win-commandingsurface-actionareacontainer {
+        border-bottom-left-radius: 25px;
+    }
+
+    #commandsAppBar .win-commandingsurface-actionarea, .win-commandingsurface .win-commandingsurface-actionarea {
+        background-image: url(/images/vector-wide.svg);
+        background-size: auto 24px;
+        background-repeat: no-repeat;
+        background-position-x: 50px;
+        background-position-y: 12px;
+    }
+
+#imagesSettings {
+    overflow: auto;
+    width: 350px;
+    padding: 0px;
+}
+
+    #imagesSettings .sizeLabel {
+        -ms-grid-column-align: end;
+        margin-top: 13px;
+        font-size: 10pt;
+        opacity: .6;
+    }
+
+    #imagesSettings .win-toggleswitch {
+        margin-bottom: 20px;
+    }
+
+        #imagesSettings .win-toggleswitch .win-toggleswitch-header {
+            margin-top: 0px;
+        }
+
+    #imagesSettings .win-toggleswitch-track {
+        outline: 0;
+    }
+
+    #imagesSettings .setings-section {
+        box-shadow: inset 0px 6px 4px 0px rgba(50, 50, 50, 0.8);
+        padding-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+
+        #imagesSettings .setings-section h3 {
+            text-transform: uppercase;
+            opacity: .4;
+        }
+
+.win-flyout {
+    margin: 0px;
+    max-width: 600px;
+}
+
+
+@media (max-height: 340px) {
+    .maskLabel {
+        opacity: 0;
+    }
+}
+
+@media (max-height: 700px) AND (max-width: 946px) {
+    .maskLabel {
+        opacity: 0;
+    }
+}
+
+@media (max-height: 638px) AND (max-width: 946px) {
+    #app {
+        display: none;
+    }
+
+    #commandsAppBar {
+        opacity: 0;
+    }
+
+    body {
+        background-image: url(/images/vector-wide.svg);
+        background-size: 60% auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: rgba(50, 50, 50, 0.8);
+    }
+}
+
+@media (max-width: 946px) {
+
+    #app section[role=main] {
+        -ms-grid-rows: 3fr 300px 2fr 300px 3fr;
+        -ms-grid-columns: 1fr auto 1fr;
+    }
+
+    #squareLabel {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+    }
+
+    #wideLabel {
+        -ms-grid-row: 4;
+        -ms-grid-column: 2;
+    }
+
+    #squareMask {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+        -ms-grid-column-align: start;
+    }
+
+    #wideMask {
+        -ms-grid-row: 4;
+        -ms-grid-column: 2;
+    }
+
+    #squareController {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+        -ms-grid-column-align: start;
+    }
+
+    #wideController {
+        -ms-grid-row: 4;
+        -ms-grid-column: 2;
+    }
+}

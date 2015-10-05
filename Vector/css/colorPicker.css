@@ -1,0 +1,77 @@
+﻿.win-flyout {
+    border: none;
+    background-color: #393939;
+}
+
+.colorPicker .colorIndicator {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: black;
+    z-index: 5;
+}
+
+.colorPicker .colorWrapper {
+    position: relative;
+    width: 256px;
+    height: 256px;
+}
+
+.colorPicker .dark {
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.colorPicker input[type=range] {
+    position: relative;
+    width: 256px;
+    margin-left: 0px;
+    outline: none;
+    border: none;
+}
+
+.colorPicker input[type=range]::-ms-track {
+    color:transparent;
+    background-color: white;
+    border: none;
+}
+
+.colorPicker canvas {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.colorPicker #hexColorRegion {
+    display: -ms-grid;
+    -ms-grid-columns: auto 1fr;
+}
+
+.colorPicker #hexColorLabel {
+    -ms-grid-column: 1;
+    -ms-grid-row-align: end;
+    margin-right: 10px;
+    color: gray;
+    text-transform: uppercase;
+    font-family: 'Segoe UI Semibold';
+}
+
+.colorPicker #hexColor {
+    -ms-grid-column: 2;
+    width: 70px;
+    -ms-grid-column-align: end;
+    margin-right: 2px;
+    color: rgba(255, 255, 255, 0.70);
+
+    background-color: rgba(255, 255, 255, 0.20);
+    font-family: 'Segoe UI Semibold';
+    font-size: 11pt;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+}

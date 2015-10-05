@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="60695TheRobot.Vector" Version="2.0.2.0" Publisher="CN=88EA9E5E-20E2-4E92-AE92-E9B38BBF3AAE" />
+  <mp:PhoneIdentity PhoneProductId="7fc3777f-57e5-4765-b25c-2989ff99ede8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Vector</DisplayName>
+    <PublisherDisplayName>The Robot</PublisherDisplayName>
+    <Logo>images/tiles/storelogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <uap:VisualElements DisplayName="Vector" Description="Vector for Windows 10" BackgroundColor="transparent" Square150x150Logo="images/tiles/Logo.png" Square44x44Logo="images/tiles/Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="images/tiles/WideLogo.png" Square71x71Logo="images/tiles/square71x71logo.png" Square310x310Logo="images/tiles/LargeLogo.png" ShortName="Vector">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="images/tiles/splashscreen.png" BackgroundColor="#840E0E" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+</Package>
