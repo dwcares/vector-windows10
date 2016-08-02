@@ -52,6 +52,11 @@ progress {
         opacity: 1;
     }
 
+    progress.error {
+        color: lightcoral;
+        
+    }
+
 
 #headerLogo {
     background-image: url(/images/vector-wide.svg);

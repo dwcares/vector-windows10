@@ -23,6 +23,7 @@
     };
     var _imagePadding = 80;
     var _bottomPadding = 30;
+    var _exportError = false;
     var _folderName = "AppImages";
     var _imagePath = "/images/widelogo.svg";
     var _manifestScaleReleaseMap = {
@@ -350,11 +351,17 @@
             resetImageTransformations();
 
             squareImage.onload = function (e) {
+                e.currentTarget.style.width = e.currentTarget.width + "px";
+                e.currentTarget.style.height = e.currentTarget.height + "px";
+
                 zoomAndCenterImage(e.currentTarget, squareMask);
                 WinJS.UI.Animation.fadeIn(e.currentTarget);
 
             }
             wideImage.onload = function (e) {
+                e.currentTarget.style.width = e.currentTarget.width + "px";
+                e.currentTarget.style.height = e.currentTarget.height + "px";
+
                 zoomAndCenterImage(e.currentTarget, wideMask);
                 WinJS.UI.Animation.fadeIn(e.currentTarget);
             }
@@ -400,8 +407,13 @@
         WinJS.Utilities.addClass(saveProgress, "showing");
         var promises = [];
 
+        _exportError = false; // reset any error state
+        WinJS.Utilities.removeClass(saveProgress, "error");
+
         var img = new Image();   // Create new img element
         img.onload = function (e) {
+            e.currentTarget.style.width = e.currentTarget.width+"px";
+            e.currentTarget.style.height = e.currentTarget.height+"px";
             _manifestImages.forEach(function (manifestImage) {
                 if (isSelected(manifestImage.title)) {
                     var sizesToExport = getSizesToExport(manifestImage.sizes);
@@ -417,11 +429,13 @@
         WinJS.Promise.join(promises).then(function () {
             setTimeout(function () {
                 WinJS.Utilities.removeClass(saveProgress, "showing");
-            }, 2000);
+            }, 3000);
         });
     }
 
     function exportSize(img, exportFolder, manifestImage, size, retryForFloatingPoint) {
+        if (_exportError) return;
+
         var outScale = size.scale / 100 * manifestImage.scaleToMask;
         var canvas = document.createElement("canvas");
         var ctx = canvas.getContext("2d");
@@ -502,10 +516,20 @@
             //shave a pixel to handle floating point sized SVGs
             if (ex.message === "IndexSizeError" && !retryForFloatingPoint) {
                 return exportSize(img, exportFolder, manifestImage, size, true)
-            } else {
+            } else if (!_exportError) {
                 // invalid placement, do not save file
-                // todo, non-modal error text
-                debugger;
+                _exportError = true;
+
+                exportFolder.deleteAsync();
+
+                var messageDialog = new Windows.UI.Popups.MessageDialog("I'm sorry. Vector can only work on standard SVG files that have a specified size. Use an app like Inkscape or Adobe Illustrator to export to SVG with a size, or add the size properties manually in the SVG file's markup. Your export was cancelled.\n\n" + "Exception: " + ex.name, "Unsupported SVG file");
+                messageDialog.showAsync();
+
+          
+                
+                WinJS.Utilities.addClass(saveProgress, "error");
+
+                //debugger;
             }
         }
     }
